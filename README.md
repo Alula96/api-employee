@@ -17,6 +17,21 @@ To test api easily, you should install the next applications
 
 ---
 
+## Configurations
+
+### Execution port
+
+The port where the application runs is 8080, you can change the port in the `application.yml` file.
+
+### Database
+
+The applications database is postgresql, TO RUN THE PROJECT you must to replace the next variables with your own values in `application.yml` file:
+
+- username
+- password
+
+---
+
 ## Instalation
 
 To install the project, you should follow the next steps:
@@ -47,11 +62,5 @@ mvn spring-boot:run
 
 - **master:** Stores the official release history.
 - **develop:** Serves as an integration branch for features.
-
-### Branch prefixes
-
-- **feature/:** Each new feature should reside in its own branch, which can be pushed to the central repository for `backup/collaboration`.
-
-More information: [Gitflow Workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow).
 
 ---
