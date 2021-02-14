@@ -7,6 +7,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,6 +25,7 @@ import com.test.apiemployee.repository.EmployeeRepository;
 
 @RestController
 @RequestMapping("/employee/employee")
+@CrossOrigin(origins = "*")
 public class EmployeeController {
 	
 	static final String RESOURCE_NOT_FOUND_MESSAGE = "Resource not found with id: ";	
@@ -91,7 +93,7 @@ public class EmployeeController {
 		        .findById(employeeDTO.getId())
 		        .orElseThrow(() -> new ResourceNotFoundException(RESOURCE_NOT_FOUND_MESSAGE + employeeDTO.getId()));
 		employee.setName(employeeDTO.getName());
-		employee.setLastName(employeeDTO.getName());
+		employee.setLastName(employeeDTO.getLastName());
 		employee.setBirthdate(employeeDTO.getBirthdate());
 		employee.setPay(employeeDTO.getPay());		
 		return ResponseEntity.ok().body(this.employeeRepository.save(employee));

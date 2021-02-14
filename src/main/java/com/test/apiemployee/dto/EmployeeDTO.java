@@ -1,8 +1,10 @@
 package com.test.apiemployee.dto;
 
-import java.util.Date;
+import java.util.Calendar;
 
 import javax.validation.constraints.NotNull;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -23,7 +25,8 @@ public class EmployeeDTO {
     private String lastName;
         
 	@NotNull(message = "Employee's birthdate is required")
-    private Date birthdate;
+	@JsonFormat(pattern = "yyyy-MM-dd")
+    private Calendar birthdate;
     
     @NotNull(message = "Employee's payment is required")
     private Double pay;
